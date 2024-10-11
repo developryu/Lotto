@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "com.rhi.personal.lotto"
-    compileSdk = 35
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
         applicationId = "com.rhi.personal.lotto"
-        minSdk = 28
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = rootProject.extra["minSdk"] as Int
+        targetSdk = rootProject.extra["compileSdk"] as Int
+        versionCode = rootProject.extra["versionCode"] as Int
+        versionName = rootProject.extra["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,11 +27,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = rootProject.extra["sourceCompatibility"] as JavaVersion
+        targetCompatibility = rootProject.extra["targetCompatibility"] as JavaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = rootProject.extra["jvmTarget"] as String
+    }
     }
 }
 

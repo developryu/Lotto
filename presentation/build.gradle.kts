@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.rhi.personal.lotto.presentation"
-    compileSdk = 35
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
-        minSdk = 28
+        minSdk = rootProject.extra["minSdk"] as Int
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -25,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = rootProject.extra["sourceCompatibility"] as JavaVersion
+        targetCompatibility = rootProject.extra["targetCompatibility"] as JavaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = rootProject.extra["jvmTarget"] as String
     }
     buildFeatures {
         compose = true
