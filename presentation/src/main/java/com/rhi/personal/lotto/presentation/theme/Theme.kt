@@ -3,12 +3,20 @@ package com.rhi.personal.lotto.presentation.theme
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
+import com.rhi.personal.lotto.presentation.theme.custom.CustomLocalColorScheme
+import com.rhi.personal.lotto.presentation.theme.custom.CustomLocalTypography
+import com.rhi.personal.lotto.presentation.theme.custom.CustomTypography
+import com.rhi.personal.lotto.presentation.theme.custom.customDarkColorScheme
+import com.rhi.personal.lotto.presentation.theme.custom.customDarkMainColor
+import com.rhi.personal.lotto.presentation.theme.custom.customLightColorScheme
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -32,6 +40,12 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+private val LightCustomThemeColors = customLightColorScheme()
+
+private val DarkCustomThemeColors = customDarkColorScheme(
+    mainColor = customDarkMainColor
+)
+
 @Composable
 fun LottoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -51,9 +65,23 @@ fun LottoTheme(
         else -> LightColorScheme
     }
 
+    val customColorScheme = when {
+        darkTheme -> DarkCustomThemeColors
+        else -> LightCustomThemeColors
+    }
+
+    val customTypography = CustomTypography
+
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = {
+            CompositionLocalProvider(
+                CustomLocalColorScheme provides customColorScheme,
+                CustomLocalTypography provides customTypography
+            ) {
+                Surface(content = content)
+            }
+        }
     )
 }

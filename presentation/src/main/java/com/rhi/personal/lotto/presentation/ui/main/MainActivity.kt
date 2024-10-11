@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import com.rhi.personal.lotto.presentation.ui.theme.LottoTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import com.rhi.personal.lotto.presentation.theme.LottoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,10 +18,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LottoTheme {
-                androidx.compose.material3.Scaffold(modifier = androidx.compose.ui.Modifier.Companion.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        modifier = androidx.compose.ui.Modifier.Companion.padding(innerPadding)
+                        modifier = Modifier.Companion.padding(innerPadding)
                     )
                 }
             }
