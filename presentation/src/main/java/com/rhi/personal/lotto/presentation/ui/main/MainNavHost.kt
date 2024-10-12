@@ -13,7 +13,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rhi.personal.lotto.presentation.ui.main.home.HomeScreen
 import com.rhi.personal.lotto.presentation.ui.main.setting.SettingScreen
-import com.rhi.personal.lotto.presentation.ui.main.splash.SplashScreen
 
 @Composable
 fun MainNavHost(
@@ -39,11 +38,8 @@ fun MainNavHost(
             NavHost(
                 modifier = Modifier.padding(paddingValue),
                 navController = navController,
-                startDestination = MainRouteName.SPLASH_SCREEN
+                startDestination = MainRouteName.HOME_SCREEN
             ) {
-                composable(route = MainRouteName.SPLASH_SCREEN) {
-                    SplashScreen()
-                }
                 composable(route = MainRouteName.HOME_SCREEN) {
                     HomeScreen()
                 }
