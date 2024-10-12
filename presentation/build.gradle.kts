@@ -71,7 +71,10 @@ dependencies {
     implementation(libs.orbit.viewmodel)
     implementation(libs.orbit.compose)
 
-    //compose navigation
+    // Compose Navigation
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)
+
+    // Lottie
+    implementation(libs.lottie.compose)
 }
