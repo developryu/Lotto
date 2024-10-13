@@ -10,4 +10,5 @@
 
     <string name="lotto">로또</string>
     <string name="settings">설정</string>
+    <string name="qr_code_scan">QR 코드 당첨 확인하기</string>
 </resources>

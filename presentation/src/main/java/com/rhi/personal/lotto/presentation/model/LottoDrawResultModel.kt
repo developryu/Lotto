@@ -1,10 +1,13 @@
 package com.rhi.personal.lotto.presentation.model
 
+import android.icu.text.DateFormat
 import android.os.Parcelable
 import com.rhi.personal.lotto.domain.model.LottoDrawResult
 import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.IgnoredOnParcel
 import java.text.DecimalFormat
 import java.util.Date
+import java.util.Locale
 
 @Parcelize
 data class LottoDrawResultModel(
@@ -17,10 +20,17 @@ data class LottoDrawResultModel(
     val numbers: List<Int>,
     val bonusNumber: Int
 ): Parcelable {
+    @IgnoredOnParcel
     private val prizeFormat = DecimalFormat("#,###")
 
     fun getPrizeFormat(prize: Long): String {
         return prizeFormat.format(prize)
+    }
+
+    fun getDrawDateFormat(): String {
+        val locale = Locale.getDefault()
+        val dateFormat = DateFormat.getDateInstance(DateFormat.LONG, locale)
+        return dateFormat.format(drawDate)
     }
 }
 
