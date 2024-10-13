@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 fun NumberBallList(
     numbers: List<Int>,
     gap: Dp = 8.dp,
+    onChangeBallSize: (Dp) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
@@ -33,8 +34,10 @@ fun NumberBallList(
         contentAlignment = Alignment.Center
     ) {
         ballSize = with(density) {
-            val baseWidth = (maxWidth - (gap * (numbers.size - 1))) / numbers.size
-            if (baseWidth > maxHeight) maxHeight else baseWidth
+            val baseWidth = ((maxWidth - (gap * (numbers.size))) / numbers.size)
+            val size = if (baseWidth > maxHeight) maxHeight else baseWidth
+            onChangeBallSize(size)
+            size
         }
         LazyRow(
             modifier = Modifier,

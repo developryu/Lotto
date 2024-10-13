@@ -57,7 +57,7 @@ fun NumberBall(
             ),
         contentAlignment = Alignment.Center
     ) {
-        brushRadius = maxWidth.value.toFloat() * 2
+        brushRadius = maxWidth.value.toFloat() * 1.5f
         with(LocalDensity.current) {
             Text(
                 text = number.toString(),
