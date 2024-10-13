@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">로또!</string>
+    <string name="app_name">Lotto Number</string>
+
+    <string name="winning_results">Winning Results</string>
+    <string name="draw_round">%02dth</string>
+    <string name="draw_date">(Draw on %s)</string>
+    <string name="winning_number">Winning Numbers</string>
+    <string name="winning_bonus_number">Bonus</string>
+
+    <string name="lotto">Lotto</string>
+    <string name="settings">Settings</string>
 </resources>

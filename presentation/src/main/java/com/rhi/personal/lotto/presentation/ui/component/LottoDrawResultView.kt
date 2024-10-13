@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.component
 
+import com.rhi.personal.lotto.presentation.R
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,18 +42,18 @@ fun LottoDrawResultView(
             verticalAlignment = Alignment.Bottom
         ) {
             Text(
-                text = String.format("%02d회차", result.drawRound) + " ",
+                text = String.format(stringResource(R.string.draw_round), result.drawRound) + " ",
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFFD3391A)
             )
             Text(
-                text = "당첨결과",
+                text = stringResource(R.string.winning_results),
                 fontSize = 25.sp,
             )
         }
         Text(
-            text = String.format("(%s 추첨)", result.getDrawDateFormat()),
+            text = String.format(stringResource(R.string.draw_date), result.getDrawDateFormat()),
             fontSize = 14.sp,
             color = Color.Gray
         )
@@ -67,13 +69,13 @@ fun LottoDrawResultView(
                 modifier = Modifier.weight(0.75f),
                 textAlign = TextAlign.Center,
                 color = Color(0xFF555555),
-                text = "당첨번호",
+                text = stringResource(R.string.winning_number),
                 fontSize = 10.sp
             )
             Spacer(modifier = Modifier.weight(0.1f))
             Text(
                 modifier = Modifier.weight(0.15f),
-                text = "보너스",
+                text = stringResource(R.string.winning_bonus_number),
                 color = Color(0xFF555555),
                 textAlign = TextAlign.Center,
                 fontSize = 10.sp

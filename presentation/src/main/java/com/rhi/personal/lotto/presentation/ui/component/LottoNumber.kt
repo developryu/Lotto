@@ -54,9 +54,8 @@ fun LottoNumber(
                 modifier = Modifier.fillMaxWidth()
             )
         }
-        Spacer(modifier = Modifier.size(5.dp))
         Box(
-            modifier = Modifier.weight(0.05f),
+            modifier = Modifier.weight(0.1f),
             contentAlignment = Alignment.Center
         ) {
             Icon(
@@ -66,7 +65,6 @@ fun LottoNumber(
                 contentDescription = ""
             )
         }
-        Spacer(modifier = Modifier.size(5.dp))
         Box(
             modifier = Modifier.weight(0.15f)
 

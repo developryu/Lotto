@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">로또 번호 확인</string>
+
+    <string name="winning_results">당첨결과</string>
+    <string name="draw_round">%02d회</string>
+    <string name="draw_date">(%s 추첨)</string>
+    <string name="winning_number">당첨번호</string>
+    <string name="winning_bonus_number">보너스</string>
+
+    <string name="lotto">로또</string>
+    <string name="settings">설정</string>
+</resources>
