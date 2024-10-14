@@ -42,7 +42,7 @@ data class LottoApiResponse(
         totalSellAmount = totSellAmount,
         firstPrizeAmount = firstWinAmount,
         firstPrizeTotalAmount = firstAccumAmount,
-        firstPrizeWinnerCount = firstPrzWinnerCount,
+        firstWinnerCount = firstPrzWinnerCount,
         numbers = listOf(no1, no2, no3, no4, no5, no6),
         bonusNumber = bonusNo,
     )

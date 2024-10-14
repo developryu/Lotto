@@ -14,6 +14,10 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -26,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.ui.component.LottoDrawResultItem
+import com.rhi.personal.lotto.presentation.ui.main.dialog.LottoDrawResultDialog
 import com.rhi.personal.lotto.presentation.ui.qrscan.QrScanActivity
 import org.orbitmvi.orbit.compose.collectAsState
 import java.util.Date
@@ -52,6 +57,9 @@ private fun HomeScreen(
 ) {
     val context = LocalContext.current
 
+    var isShowDialog by remember { mutableStateOf(false) }
+    var selectedLottoDrawResult by remember { mutableStateOf<LottoDrawResultModel?>(null) }
+
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -63,7 +71,8 @@ private fun HomeScreen(
                     HomeHeader(
                         result = model,
                         onClickResult = {
-
+                            selectedLottoDrawResult = model
+                            isShowDialog = true
                         },
                         onClickQrScan = {
                             val intent = Intent(context, QrScanActivity::class.java)
@@ -81,7 +90,11 @@ private fun HomeScreen(
                     beforeLottoDrawResultList.getOrNull(it)?.let { model ->
                         LottoDrawResultItem(
                             item = model,
-                            modifier = Modifier.padding(horizontal = 10.dp)
+                            modifier = Modifier.padding(horizontal = 10.dp),
+                            onClick = {
+                                selectedLottoDrawResult = model
+                                isShowDialog = true
+                            }
                         )
                     }
                 }
@@ -103,6 +116,20 @@ private fun HomeScreen(
                 }
             }
         }
+
+        LottoDrawResultDialog(
+            isVisible = isShowDialog,
+            result = selectedLottoDrawResult,
+            onDismissRequest = {
+                selectedLottoDrawResult = null
+                isShowDialog = false
+            },
+            onShredResult = {
+
+            }
+        )
+
+
     }
 }
 

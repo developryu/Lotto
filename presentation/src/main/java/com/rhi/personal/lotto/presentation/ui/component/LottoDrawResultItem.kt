@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,12 +26,16 @@ import java.util.Date
 @Composable
 fun LottoDrawResultItem(
     item: LottoDrawResultModel,
+    onClick: (LottoDrawResultModel) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
             .height(70.dp)
+            .clickable {
+                onClick(item)
+            }
             .padding(5.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween

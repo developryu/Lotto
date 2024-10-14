@@ -16,7 +16,7 @@ data class LottoDrawResultModel(
     val totalSellAmount: Long,
     val firstPrizeAmount: Long,
     val firstPrizeTotalAmount: Long,
-    val firstPrizeWinnerCount: Int,
+    val firstWinnerCount: Int,
     val numbers: List<Int>,
     val bonusNumber: Int
 ): Parcelable {
@@ -46,7 +46,7 @@ fun LottoDrawResult.toModel(): LottoDrawResultModel = LottoDrawResultModel(
     totalSellAmount = totalSellAmount,
     firstPrizeAmount = firstPrizeAmount,
     firstPrizeTotalAmount = firstPrizeTotalAmount,
-    firstPrizeWinnerCount = firstPrizeWinnerCount,
+    firstWinnerCount = firstWinnerCount,
     numbers = numbers,
     bonusNumber = bonusNumber
 )

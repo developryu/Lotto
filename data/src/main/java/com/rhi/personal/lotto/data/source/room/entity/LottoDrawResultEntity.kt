@@ -26,7 +26,7 @@ data class LottoDrawResultEntity(
         totalSellAmount = totalSellAmount,
         firstPrizeAmount = firstPrizeAmount,
         firstPrizeTotalAmount = firstPrizeTotalAmount,
-        firstPrizeWinnerCount = firstPrizeWinnerCount,
+        firstWinnerCount = firstPrizeWinnerCount,
         numbers = numbers,
         bonusNumber = bonusNumber,
     )
@@ -38,7 +38,7 @@ fun LottoDrawResult.toEntity(): LottoDrawResultEntity = LottoDrawResultEntity(
     totalSellAmount = totalSellAmount,
     firstPrizeAmount = firstPrizeAmount,
     firstPrizeTotalAmount = firstPrizeTotalAmount,
-    firstPrizeWinnerCount = firstPrizeWinnerCount,
+    firstPrizeWinnerCount = firstWinnerCount,
     numbers = numbers,
     bonusNumber = bonusNumber
 )

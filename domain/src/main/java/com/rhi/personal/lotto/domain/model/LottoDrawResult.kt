@@ -6,7 +6,7 @@ data class LottoDrawResult(
     val totalSellAmount: Long,
     val firstPrizeAmount: Long,
     val firstPrizeTotalAmount: Long,
-    val firstPrizeWinnerCount: Int,
+    val firstWinnerCount: Int,
     val numbers: List<Int>,
     val bonusNumber: Int
 )

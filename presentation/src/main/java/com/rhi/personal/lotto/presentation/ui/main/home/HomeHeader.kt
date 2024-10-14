@@ -102,7 +102,7 @@ private fun HomeHeaderPreview() {
             totalSellAmount = 1,
             firstPrizeAmount = 1,
             firstPrizeTotalAmount = 1,
-            firstPrizeWinnerCount = 1,
+            firstWinnerCount = 1,
             numbers = listOf(1, 2, 3, 4, 5, 6),
             bonusNumber = 7
         )
