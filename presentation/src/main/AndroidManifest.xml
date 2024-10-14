@@ -22,8 +22,10 @@ xmlns:tools="http://schemas.android.com/tools">
     </activity>
 
     <activity android:name=".ui.main.MainActivity"
-        android:exported="true"
-        android:theme="@style/Theme.Lotto"/>
+        android:exported="true" />
+
+    <activity android:name=".ui.qrscan.QrScanActivity"
+        android:exported="true" />
 
 </application>
 

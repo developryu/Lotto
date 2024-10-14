@@ -74,7 +74,7 @@ fun HomeHeader(
                 horizontalArrangement = Arrangement.Center
             ) {
                 Image(
-                    modifier = Modifier.size(30.dp),
+                    modifier = Modifier.size(25.dp),
                     painter = painterResource(R.drawable.ic_qrcode),
                     contentDescription = null,
                 )

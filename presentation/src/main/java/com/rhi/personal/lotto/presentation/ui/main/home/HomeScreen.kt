@@ -1,13 +1,16 @@
 package com.rhi.personal.lotto.presentation.ui.main.home
 
+import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
+import com.rhi.personal.lotto.presentation.ui.qrscan.QrScanActivity
 import org.orbitmvi.orbit.compose.collectAsState
 import java.util.Date
 
@@ -26,6 +29,8 @@ private fun HomeScreen(
     latestLottoDrawResult: LottoDrawResultModel?,
     beforeLottoDrawResultList: List<LottoDrawResultModel>?,
 ) {
+    val context = LocalContext.current
+
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -37,7 +42,8 @@ private fun HomeScreen(
 
                     },
                     onClickQrScan = {
-
+                        val intent = Intent(context, QrScanActivity::class.java)
+                        context.startActivity(intent)
                     }
                 )
             }
