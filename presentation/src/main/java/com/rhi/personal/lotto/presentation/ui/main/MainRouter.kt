@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.main
 
+import com.rhi.personal.lotto.presentation.R
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.rhi.personal.lotto.presentation.ui.main.MainRouteName.HOME_SCREEN
@@ -13,8 +14,8 @@ sealed class MainRouter(open val route: String) {
         @DrawableRes val iconDrawableRes: Int,
         val contentDescription: String
     ): MainRouter(route) {
-        data object Home: MainNav(HOME_SCREEN, 0, 0, "home")
-        data object Setting: MainNav(SETTING_SCREEN, 0, 0, "setting")
+        data object Home: MainNav(HOME_SCREEN, R.string.main_nav_home, R.drawable.ic_home, "home")
+        data object Setting: MainNav(SETTING_SCREEN, R.string.main_nav_setting, R.drawable.ic_setting, "setting")
 
         companion object {
             fun isMainNav(route: String?): Boolean {

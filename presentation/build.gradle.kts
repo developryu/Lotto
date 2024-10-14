@@ -78,4 +78,7 @@ dependencies {
 
     // Lottie
     implementation(libs.lottie.compose)
+
+    // kotlin reflect <mainNavClass.sealedSubclasses.forEach>
+    implementation(libs.kotlin.reflect)
 }

@@ -31,7 +31,15 @@ fun MainNavHost(
             },
             bottomBar = {
                 if (MainRouter.MainNav.isMainNav(currentRoute)) {
-
+                    MainBottomBar(currentRoute ?: MainRouter.MainNav.Home.route) { newRoute ->
+                        navController.navigate(newRoute) {
+                            navController.graph.startDestinationRoute?.let { route ->
+                                popUpTo(route) { saveState = true }
+                                this.launchSingleTop = true
+                                this.restoreState = true
+                            }
+                        }
+                    }
                 }
             }
         ) { paddingValue ->

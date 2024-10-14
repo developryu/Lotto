@@ -8,7 +8,8 @@
     <string name="winning_number">당첨번호</string>
     <string name="winning_bonus_number">보너스</string>
 
-    <string name="lotto">로또</string>
-    <string name="settings">설정</string>
     <string name="qr_code_scan">QR 코드 당첨 확인하기</string>
+
+    <string name="main_nav_home">홈</string>
+    <string name="main_nav_setting">설정</string>
 </resources>
