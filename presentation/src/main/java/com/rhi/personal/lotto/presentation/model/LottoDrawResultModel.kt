@@ -32,6 +32,12 @@ data class LottoDrawResultModel(
         val dateFormat = DateFormat.getDateInstance(DateFormat.LONG, locale)
         return dateFormat.format(drawDate)
     }
+
+    fun getDrawDateShortFormat(): String {
+        val locale = Locale.getDefault()
+        val dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale)
+        return dateFormat.format(drawDate)
+    }
 }
 
 fun LottoDrawResult.toModel(): LottoDrawResultModel = LottoDrawResultModel(

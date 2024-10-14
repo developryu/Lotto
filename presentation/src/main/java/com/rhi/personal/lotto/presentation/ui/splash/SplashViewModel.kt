@@ -2,6 +2,7 @@ package com.rhi.personal.lotto.presentation.ui.splash
 
 import androidx.lifecycle.ViewModel
 import com.rhi.personal.lotto.domain.usecase.LottoUseCase
+import com.rhi.personal.lotto.presentation.constant.MORE_LOAD_SIZE
 import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.model.SplashPreLoadModel
 import com.rhi.personal.lotto.presentation.model.toModel
@@ -66,7 +67,7 @@ class SplashViewModel @Inject constructor(
 
     private suspend fun fetchBeforeLottoResultList() = coroutineScope {
         async {
-            lottoUseCase.getLottoDrawResultList(lottoUseCase.getLatestLottoDrawRound().getOrThrow() - 1, 5).getOrThrow().map { it.toModel() }
+            lottoUseCase.getLottoDrawResultList(lottoUseCase.getLatestLottoDrawRound().getOrThrow() - 1, MORE_LOAD_SIZE).getOrThrow().map { it.toModel() }
         }
     }
 

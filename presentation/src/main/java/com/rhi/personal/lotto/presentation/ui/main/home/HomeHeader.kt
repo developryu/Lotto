@@ -35,13 +35,13 @@ import java.util.Date
 @Composable
 fun HomeHeader(
     result: LottoDrawResultModel,
-    onClickResult: (model: LottoDrawResultModel) -> Unit = {},
+    onClickResult: () -> Unit = {},
     onClickQrScan: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
-            .padding(bottom = 10.dp)
+            .padding(bottom = 15.dp)
     ) {
         Card(
             modifier = modifier
@@ -55,10 +55,11 @@ fun HomeHeader(
                 modifier = Modifier.clickable(
                     indication = null,
                     interactionSource = remember { MutableInteractionSource() }
-                ) {
-                    onClickResult(result)
-                },
-                result = result
+                ) { onClickResult() },
+                drawRound = result.drawRound,
+                dateString = result.getDrawDateFormat(),
+                numbers = result.numbers,
+                bonusNumber = result.bonusNumber
             )
             Row(
                 modifier = Modifier
@@ -102,8 +103,8 @@ private fun HomeHeaderPreview() {
             firstPrizeAmount = 1,
             firstPrizeTotalAmount = 1,
             firstPrizeWinnerCount = 1,
-            numbers = listOf(1, 11, 21, 31, 41, 2),
-            bonusNumber = 1,
+            numbers = listOf(1, 2, 3, 4, 5, 6),
+            bonusNumber = 7
         )
     )
 }

@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.data.usecase
 
+import android.util.Log
 import com.rhi.personal.lotto.domain.model.LottoDrawResult
 import com.rhi.personal.lotto.domain.repository.GetLottoDrawResultApiRepository
 import com.rhi.personal.lotto.domain.repository.GetLottoDrawResultDbRepository
@@ -48,7 +49,7 @@ class LottoUseCaseImpl @Inject constructor(
         latestRound: Int,
         count: Int
     ): Result<List<LottoDrawResult>> = runCatching {
-        val roundList = (latestRound downTo latestRound - count).toList()
+        val roundList = (latestRound downTo latestRound - count + 1).toList()
         val dbList = getLottoDrawResultListDbRepository(roundList).getOrThrow()
         if (dbList.size == count) {
             dbList

@@ -12,4 +12,7 @@
 
     <string name="main_nav_home">홈</string>
     <string name="main_nav_setting">설정</string>
+
+    <string name="home_title_before_lotto_draw_result">이전 당첨결과</string>
+    <string name="more_load">더보기</string>
 </resources>

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,13 +19,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import java.util.Date
 
 @SuppressLint("DefaultLocale")
 @Composable
 fun LottoDrawResultView(
-    result: LottoDrawResultModel,
+    drawRound: Int,
+    dateString: String,
+    numbers: List<Int>,
+    bonusNumber: Int,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -42,7 +43,7 @@ fun LottoDrawResultView(
             verticalAlignment = Alignment.Bottom
         ) {
             Text(
-                text = String.format(stringResource(R.string.draw_round), result.drawRound) + " ",
+                text = String.format(stringResource(R.string.draw_round), drawRound) + " ",
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFFD3391A)
@@ -53,14 +54,14 @@ fun LottoDrawResultView(
             )
         }
         Text(
-            text = String.format(stringResource(R.string.draw_date), result.getDrawDateFormat()),
+            text = String.format(stringResource(R.string.draw_date), dateString),
             fontSize = 14.sp,
             color = Color.Gray
         )
         LottoNumber(
             modifier = Modifier.padding(top = 20.dp),
-            numbers = result.numbers,
-            bonusNumber = result.bonusNumber
+            numbers = numbers,
+            bonusNumber = bonusNumber
         )
         Row(
             modifier = Modifier.padding(top = 4.dp)
@@ -89,15 +90,9 @@ fun LottoDrawResultView(
 @Composable
 private fun LottoDrawResultViewPreview() {
     LottoDrawResultView(
-        result = LottoDrawResultModel(
-            drawRound = 1111,
-            drawDate = Date(),
-            totalSellAmount = 1,
-            firstPrizeAmount = 1,
-            firstPrizeTotalAmount = 1,
-            firstPrizeWinnerCount = 1,
-            numbers = listOf(1, 11, 21, 31, 41, 2),
-            bonusNumber = 1,
-        )
+        drawRound = 1111,
+        dateString = Date().toString(),
+        numbers = listOf(1, 11, 21, 31, 41, 2),
+        bonusNumber = 1
     )
 }

@@ -11,4 +11,7 @@
 
     <string name="main_nav_home">Home</string>
     <string name="main_nav_setting">Setting</string>
+
+    <string name="home_title_before_lotto_draw_result">Before Lotto Draw Result</string>
+    <string name="more_load">More Load</string>
 </resources>
