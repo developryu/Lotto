@@ -15,4 +15,13 @@
 
     <string name="home_title_before_lotto_draw_result">이전 당첨결과</string>
     <string name="more_load">더보기</string>
+
+    <string name="lotto_draw_result_dialog_title">상세 당첨 결과 정보</string>
+    <string name="lotto_draw_result_dialog_sub_title1">1등 당첨금액</string>
+    <string name="lotto_draw_result_dialog_sub_title2">1등 당첨인원</string>
+    <string name="lotto_draw_result_dialog_sub_title3">1등 당첨금 총액</string>
+    <string name="lotto_draw_result_dialog_sub_title4">총 판매금액</string>
+    <string name="first_winner_count_value">%d 명</string>
+    <string name="share">공유하기</string>
+    <string name="close">닫기</string>
 </resources>

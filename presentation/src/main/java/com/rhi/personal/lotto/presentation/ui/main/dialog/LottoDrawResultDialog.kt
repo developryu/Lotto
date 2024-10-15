@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.main.dialog
 
+import com.rhi.personal.lotto.presentation.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,7 +59,7 @@ fun LottoDrawResultDialog(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = "상세 당첨 결과 정보",
+                    text = stringResource(R.string.lotto_draw_result_dialog_title),
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp
                 )
@@ -68,19 +70,19 @@ fun LottoDrawResultDialog(
                     bonusNumber = result.bonusNumber
                 )
                 LottoResultDetailContent(
-                    title = "1등 당첨금액",
+                    title = stringResource(R.string.lotto_draw_result_dialog_sub_title1),
                     value = "₩ ${result.getPrizeFormat(result.firstPrizeAmount)}"
                 )
                 LottoResultDetailContent(
-                    title = "1등 당첨인원",
-                    value = "${result.firstWinnerCount} 명"
+                    title = stringResource(R.string.lotto_draw_result_dialog_sub_title2),
+                    value = String.format(stringResource(R.string.first_winner_count_value), result.firstWinnerCount)
                 )
                 LottoResultDetailContent(
-                    title = "1등 당첨금 총액",
+                    title = stringResource(R.string.lotto_draw_result_dialog_sub_title3),
                     value = "₩ ${result.getPrizeFormat(result.firstPrizeTotalAmount)}"
                 )
                 LottoResultDetailContent(
-                    title = "총 판매금액",
+                    title = stringResource(R.string.lotto_draw_result_dialog_sub_title4),
                     value = "₩ ${result.getPrizeFormat(result.totalSellAmount)}"
                 )
                 HorizontalDivider(
@@ -97,14 +99,14 @@ fun LottoDrawResultDialog(
                         onClick = { onShredResult(result) }
                     ) {
                         Text(
-                            text = "공유하기"
+                            text = stringResource(R.string.share)
                         )
                     }
                     TextButton(
                         onClick = onDismissRequest
                     ) {
                         Text(
-                            text = "닫기"
+                            text = stringResource(R.string.close)
                         )
                     }
                 }

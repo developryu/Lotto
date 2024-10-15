@@ -14,4 +14,13 @@
 
     <string name="home_title_before_lotto_draw_result">Before Lotto Draw Result</string>
     <string name="more_load">More Load</string>
+
+    <string name="lotto_draw_result_dialog_title">Detail Lotto Draw Result</string>
+    <string name="lotto_draw_result_dialog_sub_title1">1st Prize</string>
+    <string name="lotto_draw_result_dialog_sub_title2">1st Prize Count</string>
+    <string name="lotto_draw_result_dialog_sub_title3">1st Prize Total</string>
+    <string name="lotto_draw_result_dialog_sub_title4">Total Sell</string>
+    <string name="first_winner_count_value">%d People</string>
+    <string name="share">Share</string>
+    <string name="close">Close</string>
 </resources>
