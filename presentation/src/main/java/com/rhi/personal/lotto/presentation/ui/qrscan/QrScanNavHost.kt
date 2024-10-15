@@ -34,7 +34,9 @@ fun QrScanNavHost(
                 startDestination = QrScanRouter.QrScanScreen.router
             ) {
                 composable(route = QrScanRouter.QrScanScreen.router) {
-                    QrScanScreen(viewModel)
+                    QrScanScreen(viewModel) {
+                        onFinished()
+                    }
                 }
                 composable(route = QrScanRouter.QrScanResultScreen.router,) {
                     QrScanResultScreen(

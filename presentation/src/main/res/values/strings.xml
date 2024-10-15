@@ -23,4 +23,12 @@
     <string name="first_winner_count_value">%d People</string>
     <string name="share">Share</string>
     <string name="close">Close</string>
+
+    <string name="permission_camera">Camera</string>
+    <string name="permission_dialog_title">Permission Request Notification</string>
+    <string name="permission_dialog_content">%2$s permission is required to use the %1$s function. Please allow the permission.</string>
+    <string name="permission_dialog_button_ok">ok</string>
+    <string name="permission_dialog_button_cancel">cancel</string>
+    <string name="permission_dialog_button_setting">Go to settings</string>
+    <string name="permission_function_qr_scan">QR Code Scanning</string>
 </resources>

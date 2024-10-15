@@ -81,4 +81,7 @@ dependencies {
 
     // kotlin reflect <mainNavClass.sealedSubclasses.forEach>
     implementation(libs.kotlin.reflect)
+
+    // permission check
+    implementation(libs.accompanist.permissions)
 }

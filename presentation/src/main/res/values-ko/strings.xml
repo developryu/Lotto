@@ -24,4 +24,12 @@
     <string name="first_winner_count_value">%d 명</string>
     <string name="share">공유하기</string>
     <string name="close">닫기</string>
+
+    <string name="permission_camera">카메라</string>
+    <string name="permission_dialog_title">권한 요청 알림</string>
+    <string name="permission_dialog_content">%1$s 기능을 사용하려면 %2$s 권한이 필요합니다. 권한을 허용해주세요.</string>
+    <string name="permission_dialog_button_ok">확인</string>
+    <string name="permission_dialog_button_cancel">취소</string>
+    <string name="permission_dialog_button_setting">설정이동</string>
+    <string name="permission_function_qr_scan">QR 코드 스캔</string>
 </resources>
