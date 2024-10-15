@@ -1,12 +1,12 @@
 package com.rhi.personal.lotto.data.usecase
 
-import com.rhi.personal.lotto.domain.model.LottoQrCodeScanResult
+import com.rhi.personal.lotto.domain.model.LottoQrScanResult
 import com.rhi.personal.lotto.domain.usecase.QrCodeScanUseCase
 import javax.inject.Inject
 
 class QrCodeScanUseCaseImpl @Inject constructor() : QrCodeScanUseCase {
 
-    override suspend fun scanQrCodeFromLottoUrl(url: String): Result<LottoQrCodeScanResult?> = runCatching {
+    override suspend fun scanQrCodeFromLottoUrl(url: String): Result<LottoQrScanResult> = runCatching {
         val roundRegex = Regex("v=(\\d+)")
         val roundMatch = roundRegex.find(url)
 
@@ -21,7 +21,7 @@ class QrCodeScanUseCaseImpl @Inject constructor() : QrCodeScanUseCase {
             val lottoNumbers = numbersMatches.map { match ->
                 match.groupValues[1].chunked(2).map { it.toInt() }
             }.toList()
-            LottoQrCodeScanResult(url, roundNumber, lottoNumbers)
+            LottoQrScanResult(url, roundNumber, lottoNumbers)
         } else {
             throw IllegalArgumentException("The URL format is incorrect.")
         }
