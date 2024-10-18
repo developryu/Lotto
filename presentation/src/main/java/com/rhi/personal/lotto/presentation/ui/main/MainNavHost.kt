@@ -61,7 +61,6 @@ private fun MainNavHost(
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-
     Surface {
         Scaffold(
             topBar = {
@@ -89,15 +88,18 @@ private fun MainNavHost(
             },
             bottomBar = {
                 if (MainRouter.MainNav.isMainNav(currentRoute)) {
-                    MainBottomBar(currentRoute ?: MainRouter.MainNav.Home.route) { newRoute ->
-                        navController.navigate(newRoute) {
-                            navController.graph.startDestinationRoute?.let { route ->
-                                popUpTo(route) { saveState = true }
-                                this.launchSingleTop = true
-                                this.restoreState = true
+                    MainBottomBar(
+                        currentRoute = currentRoute ?: MainRouter.MainNav.Home.route,
+                        onClick = { newRoute ->
+                            navController.navigate(newRoute) {
+                                navController.graph.startDestinationRoute?.let { route ->
+                                    popUpTo(route) { saveState = true }
+                                    this.launchSingleTop = true
+                                    this.restoreState = true
+                                }
                             }
                         }
-                    }
+                    )
                 }
             }
         ) { paddingValue ->

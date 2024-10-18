@@ -5,9 +5,12 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -31,9 +34,12 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MainBottomBar(
     currentRoute: String,
-    onClick: (newRoute: String) -> Unit
+    onClick: (newRoute: String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    Column {
+    Column(
+        modifier = modifier.padding(WindowInsets.navigationBars.asPaddingValues())
+    ) {
         HorizontalDivider()
         Row(
             modifier = Modifier.fillMaxWidth()
