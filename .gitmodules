@@ -3,7 +3,7 @@
 	url = https://developryu@github.com/developryu/DisplayDetector.git
 [submodule "modules/QrScan"]
 	path = modules/QrScan
-	url = https://github.com/developryu/QrScan.git
+	url = https://developryu@github.com/developryu/QrScan.git
 [submodule "modules/Camera"]
 	path = modules/Camera
-	url = https://github.com/developryu/Camera.git
+	url = https://developryu@github.com/developryu/Camera.git
