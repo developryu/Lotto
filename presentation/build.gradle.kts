@@ -44,6 +44,7 @@ android {
 
 dependencies {
     implementation(project(":domain"))
+    implementation(project(":modules:Camera"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -62,6 +63,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Timber
+    implementation(libs.timber)
 
     // hilt
     implementation(libs.hilt.android)
