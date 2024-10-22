@@ -25,6 +25,8 @@
     <string name="close">Close</string>
 
     <string name="permission_camera">Camera</string>
+    <string name="permission_write_external_storage">Write External Storage</string>
+    <string name="permission_read_external_storage">Read External Storage</string>
     <string name="permission_dialog_title">Permission Request Notification</string>
     <string name="permission_dialog_content">%2$s permission is required to use the %1$s function. Please allow the permission.</string>
     <string name="permission_dialog_button_ok">ok</string>

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import android.util.Log
 import androidx.compose.foundation.layout.Row
@@ -26,8 +27,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
@@ -59,7 +58,14 @@ fun PermissionDialog(
     var screenState by remember { mutableStateOf(PermissionDialogScreenState.NONE) }
 
     val permissionState = rememberMultiplePermissionsState(
-        permissions = permissions.map { it.permission },
+        permissions = permissions.map { it.permission }.filter {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                it != android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        && it != android.Manifest.permission.READ_EXTERNAL_STORAGE
+            } else {
+                true
+            }
+        },
         onPermissionsResult = { isGranted ->
             if (isGranted.all { it.value }) {
                 onGranted()
