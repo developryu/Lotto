@@ -1,6 +1,5 @@
 package com.rhi.personal.lotto.presentation.ui.qrscan
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.rhi.personal.lotto.domain.usecase.LottoUseCase
 import com.rhi.personal.lotto.domain.usecase.QrCodeScanUseCase
@@ -44,6 +43,7 @@ class QrScanViewModel @Inject constructor(
     }
 
     fun reScanQrCode() = intent {
+        scanString = null
         reduce {
             state.copy(
                 qrScanResult = null,

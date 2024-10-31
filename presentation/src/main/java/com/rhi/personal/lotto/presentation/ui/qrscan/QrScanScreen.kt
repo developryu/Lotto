@@ -14,6 +14,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import com.rhi.personal.lotto.presentation.R
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
@@ -30,7 +31,6 @@ import com.rhi.personal.lotto.presentation.ui.permission.PermissionDialog
 import com.rhi.personal.lotto.presentation.ui.permission.Permissions
 import com.ryu.personal.android.qrscanutil.ui.QrScanViewScreen
 import org.orbitmvi.orbit.compose.collectAsState
-import timber.log.Timber
 
 //    viewModel.scanQrCode("https://m.dhlottery.co.kr/?method=winQr&v=0949q142135364044q052330344344q030913314245q132432333738q0406151823261904598894%EF%BB%BF")
 @Composable
@@ -48,13 +48,19 @@ fun QrScanScreen(
             onDenied = finish
         )
     } else {
-        QrScanScreen()
+        QrScanScreen(
+            onQrDetected = { viewModel.scanQrCode(it) }
+        )
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.reScanQrCode()
     }
 }
 
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
-private fun QrScanScreen() {
+private fun QrScanScreen(onQrDetected: (String) -> Unit) {
     Surface {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -75,9 +81,7 @@ private fun QrScanScreen() {
                 QrScanViewScreen(
                     modifier = modifier
                         .background(Color.Green),
-                    onQrDetected = {
-                        Timber.d("onQrDetected: $it")
-                    }
+                    onQrDetected = onQrDetected
                 )
             }
         }
@@ -87,5 +91,7 @@ private fun QrScanScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun QrScanScreenPreview() {
-    QrScanScreen {}
+    QrScanScreen(
+        onQrDetected = {}
+    )
 }
