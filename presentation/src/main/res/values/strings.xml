@@ -33,4 +33,20 @@
     <string name="permission_dialog_button_cancel">cancel</string>
     <string name="permission_dialog_button_setting">Go to settings</string>
     <string name="permission_function_qr_scan">QR Code Scanning</string>
+
+    <string name="qr_scan_screen_title">Check your QR code winnings</string>
+    <string name="qr_scan_screen_description">Scan the QR code to check your winning results.</string>
+    <string name="qr_scan_result_title">QR code scan results</string>
+    <string name="qr_scan_result_my_number_title">My number</string>
+    <string name="qr_scan_result_rescan">Scan QR again</string>
+    <string name="qr_scan_result_move_browser">See more on the internet</string>
+    <string name="qr_scan_result_close">Close QR scan</string>
+
+    <string name="qr_scan_result_rank_title1_1">Unfortunately,</string>
+    <string name="qr_scan_result_rank_title1_2">Congratulations!</string>
+    <string name="qr_scan_result_rank_title2_1">you did not win.</string>
+    <string name="qr_scan_result_rank_title2_2">Congratulations! You have won (%s) place.</string>
+    <string name="qr_scan_result_rank1">Not a Win</string>
+    <string name="qr_scan_result_rank2">%d place</string>
+
 </resources>

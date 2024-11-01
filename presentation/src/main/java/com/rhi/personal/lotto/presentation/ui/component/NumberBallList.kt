@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -25,6 +26,7 @@ fun NumberBallList(
     numbers: List<Int>,
     gap: Dp = 8.dp,
     onChangeBallSize: (Dp) -> Unit = {},
+    drawResult: List<Int>? = null,
     modifier: Modifier = Modifier,
 ) {
     val density = LocalDensity.current
@@ -44,11 +46,20 @@ fun NumberBallList(
             horizontalArrangement = Arrangement.spacedBy(gap)
         ) {
             items(numbers.size) { index ->
-                NumberBall(
-                    number = numbers[index],
-                    modifier = Modifier
-                        .size(ballSize)
-                )
+                if (drawResult != null && !drawResult.contains(numbers[index])) {
+                    NumberBall(
+                        number = numbers[index],
+                        color = Color(0xFFEEEEEE),
+                        modifier = Modifier
+                            .size(ballSize)
+                    )
+                } else {
+                    NumberBall(
+                        number = numbers[index],
+                        modifier = Modifier
+                            .size(ballSize)
+                    )
+                }
             }
         }
     }

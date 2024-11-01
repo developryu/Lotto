@@ -7,5 +7,14 @@ import kotlinx.android.parcel.Parcelize
 data class LottoQrScanResultModel(
     val drawResult: LottoDrawResultModel,
     val url: String,
-    val myNumber: List<List<Int>>
+    val myNumber: List<MyNumberModel>,
+    val resultTitle1: String,
+    val resultTitle2: String
+): Parcelable
+
+@Parcelize
+data class MyNumberModel(
+    val numbers: List<Int>,
+    val resultTitle: String,
+    val order: String
 ): Parcelable

@@ -2,16 +2,23 @@ package com.rhi.personal.lotto.presentation.ui.qrscan
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import com.rhi.personal.lotto.presentation.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -49,7 +56,8 @@ fun QrScanScreen(
         )
     } else {
         QrScanScreen(
-            onQrDetected = { viewModel.scanQrCode(it) }
+            onQrDetected = { viewModel.scanQrCode(it) },
+            finish = finish
         )
     }
 
@@ -58,33 +66,64 @@ fun QrScanScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
-private fun QrScanScreen(onQrDetected: (String) -> Unit) {
+private fun QrScanScreen(onQrDetected: (String) -> Unit, finish: () -> Unit) {
     Surface {
-        Column(
-            modifier = Modifier.fillMaxSize()
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(R.string.qr_scan_screen_title),
+                            fontSize = 20.sp
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(
+                            onClick = {
+                                finish()
+                            }
+                        ) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back"
+                            )
+                        }
+                    }
+                )
+            }
         ) {
-            Text(
-                modifier = Modifier.padding(10.dp),
-                text ="QrScanScreen",
-                fontSize = 20.sp
-            )
+
+
             BoxWithConstraints(
-                modifier = Modifier.fillMaxWidth().weight(1f),
-                contentAlignment = Alignment.Center,
+                modifier = Modifier.padding(it).fillMaxSize(),
+                contentAlignment = Alignment.Center
             ) {
-                val modifier = if (maxWidth > maxHeight)
+                val offsetY = maxHeight * (-0.1f)
+                val qrScannerModifier = if (maxWidth > maxHeight)
                     Modifier.fillMaxHeight(0.8f).aspectRatio(1f)
                 else
                     Modifier.fillMaxWidth(0.8f).aspectRatio(1f)
-                QrScanViewScreen(
-                    modifier = modifier
-                        .background(Color.Green),
-                    onQrDetected = onQrDetected
-                )
+                Column(
+                    modifier = Modifier.offset(y = offsetY),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    QrScanViewScreen(
+                        modifier = qrScannerModifier
+                            .background(Color.Green),
+                        onQrDetected = onQrDetected
+                    )
+                    Text(
+                        text = stringResource(R.string.qr_scan_screen_description),
+                        fontSize = 20.sp,
+                        modifier = Modifier.padding(top = 20.dp)
+                    )
+                }
             }
         }
+
     }
 }
 
@@ -92,6 +131,7 @@ private fun QrScanScreen(onQrDetected: (String) -> Unit) {
 @Composable
 private fun QrScanScreenPreview() {
     QrScanScreen(
-        onQrDetected = {}
+        onQrDetected = {},
+        finish = {}
     )
 }
