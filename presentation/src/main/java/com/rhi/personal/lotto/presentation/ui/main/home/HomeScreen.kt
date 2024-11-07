@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -30,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.ui.component.LottoDrawResultItem
+import com.rhi.personal.lotto.presentation.ui.history.LottoResultHistoryActivity
 import com.rhi.personal.lotto.presentation.ui.main.dialog.LottoDrawResultDialog
 import com.rhi.personal.lotto.presentation.ui.qrscan.QrScanActivity
 import org.orbitmvi.orbit.compose.collectAsState
@@ -85,7 +88,14 @@ private fun HomeScreen(
             }
 
             if (beforeLottoDrawResultList.isNullOrEmpty().not()) {
-                homeTitle(title = context.getString(R.string.home_title_before_lotto_draw_result))
+                homeTitle(
+                    title = context.getString(R.string.home_title_before_lotto_draw_result),
+                    menuTitle = context.getString(R.string.lotto_draw_result_history_button),
+                    onClickMenu = {
+                        val intent = Intent(context, LottoResultHistoryActivity::class.java)
+                        context.startActivity(intent)
+                    }
+                )
                 items(
                     count = beforeLottoDrawResultList.size
                 ) {
@@ -135,19 +145,39 @@ private fun HomeScreen(
     }
 }
 
-private fun LazyListScope.homeTitle(title: String) {
+private fun LazyListScope.homeTitle(
+    title: String,
+    menuTitle: String? = null,
+    onClickMenu: (() -> Unit)? = null
+) {
     item {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 20.dp)
         ) {
-            Text(
-                text = title,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(4.dp)
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(horizontal = 10.dp),
+                verticalAlignment = Alignment.Bottom
+            ) {
+                Text(
+                    text = title,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f)
+                )
+                if (menuTitle != null && onClickMenu != null) {
+                    Text(
+                        text = menuTitle,
+                        fontSize = 14.sp,
+                        color = Color.Gray,
+                        modifier = Modifier.clickable(
+                            onClick = onClickMenu
+                        )
+                    )
+                }
+            }
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = 2.dp)
             )

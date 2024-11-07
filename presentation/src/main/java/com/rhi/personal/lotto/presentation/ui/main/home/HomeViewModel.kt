@@ -27,14 +27,15 @@ class HomeViewModel @Inject constructor(
     }
 
     fun setHomeBodyData(list: List<LottoDrawResultModel>?) = intent {
-        val data = if (list != null) list else lottoUseCase.getLottoDrawResultList(lottoUseCase.getLatestLottoDrawRound().getOrThrow() - 1, MORE_LOAD_SIZE).getOrThrow().map { it.toModel() }
-        reduce {
-            state.copy(beforeLottoDrawResultList = data)
+        if (state.beforeLottoDrawResultList.isNullOrEmpty()) {
+            val data = if (list != null) list else lottoUseCase.getLottoDrawResultList(lottoUseCase.getLatestLottoDrawRound().getOrThrow() - 1, MORE_LOAD_SIZE).getOrThrow().map { it.toModel() }
+            reduce {
+                state.copy(beforeLottoDrawResultList = data)
+            }
         }
     }
 
     fun onMoreLoadClick(latestIndex: Int) = intent {
-        MORE_LOAD_SIZE
         val result = lottoUseCase.getLottoDrawResultList(latestIndex, MORE_LOAD_SIZE).getOrThrow()
         reduce {
             state.copy(

@@ -42,6 +42,9 @@ xmlns:tools="http://schemas.android.com/tools">
         <activity android:name=".ui.qrscan.QrScanActivity"
             android:exported="true" />
 
+        <activity android:name=".ui.history.LottoResultHistoryActivity"
+            android:exported="false" />
+
         <receiver android:name=".ui.widget.shownumber.ShowNumberWidgetReceiver"
             android:exported="true">
             <intent-filter>

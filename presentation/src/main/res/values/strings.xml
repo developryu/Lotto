@@ -49,4 +49,6 @@
     <string name="qr_scan_result_rank1">Not a Win</string>
     <string name="qr_scan_result_rank2">%d place</string>
 
+    <string name="lotto_draw_result_history_button">show all</string>
+    <string name="lotto_draw_result_history_title">lotto draw result history</string>
 </resources>

@@ -49,4 +49,7 @@
     <string name="qr_scan_result_rank_title2_2">(%s)등 당첨되었습니다.</string>
     <string name="qr_scan_result_rank1">낙첨</string>
     <string name="qr_scan_result_rank2">%d등</string>
+
+    <string name="lotto_draw_result_history_button">전체보기</string>
+    <string name="lotto_draw_result_history_title">로또 당첨 번호 전체 보기</string>
 </resources>
