@@ -42,6 +42,36 @@ xmlns:tools="http://schemas.android.com/tools">
         <activity android:name=".ui.qrscan.QrScanActivity"
             android:exported="true" />
 
+        <receiver android:name=".ui.widget.shownumber.ShowNumberWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/show_number_widget" />
+        </receiver>
+
+        <receiver android:name=".ui.widget.home.HomeWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget" />
+        </receiver>
+
+        <receiver android:name=".ui.widget.qrscan.QrScanWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/qrscan_widget" />
+        </receiver>
+
     </application>
 
 </manifest>

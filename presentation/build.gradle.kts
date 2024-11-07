@@ -67,9 +67,14 @@ dependencies {
     // Timber
     implementation(libs.timber)
 
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+
     // hilt
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.work)
     kapt(libs.hilt.android.compiler)
+    kapt(libs.hilt.androidx.compiler)
 
     // orbit (mvi library)
     implementation(libs.orbit.core)
@@ -88,4 +93,15 @@ dependencies {
 
     // permission check
     implementation(libs.accompanist.permissions)
+
+    // Widget
+    implementation(libs.androidx.glance.appwidget)
+    implementation(libs.androidx.glance.material3)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.datastore.core)
+
+    // Gson
+    implementation(libs.gson)
 }

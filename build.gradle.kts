@@ -2,7 +2,7 @@
 ext {
     val versionCode by extra(1)
     val versionName by extra("1.0")
-    val compileSdk by extra(34)
+    val compileSdk by extra(35)
     val minSdk by extra(28)
     val jvmTarget by extra("1.8")
     val sourceCompatibility by extra(JavaVersion.VERSION_1_8)

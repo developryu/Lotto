@@ -1,9 +1,7 @@
 package com.rhi.personal.lotto.presentation.ui.qrscan
 
-import android.annotation.SuppressLint
 import android.content.Context
 import com.rhi.personal.lotto.presentation.R
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import com.rhi.personal.lotto.domain.usecase.LottoUseCase
 import com.rhi.personal.lotto.domain.usecase.QrCodeScanUseCase

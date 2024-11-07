@@ -19,22 +19,17 @@ class HomeViewModel @Inject constructor(
         initialState = HomeState()
     )
 
-    fun setInitData(
-        latestLottoDrawResult: LottoDrawResultModel?,
-        beforeLottoDrawResultList: List<LottoDrawResultModel>?
-    ) = intent {
-        if (
-            state.latestLottoDrawResult == null
-            && state.beforeLottoDrawResultList == null
-            && latestLottoDrawResult != null
-            && beforeLottoDrawResultList != null
-            ) {
-            reduce {
-                state.copy(
-                    latestLottoDrawResult = latestLottoDrawResult,
-                    beforeLottoDrawResultList = beforeLottoDrawResultList
-                )
-            }
+    fun setHomeHeaderData(result: LottoDrawResultModel?) = intent {
+        val data = if (result != null) result else lottoUseCase.getLatestLottoDrawResult().getOrThrow().toModel()
+        reduce {
+            state.copy(latestLottoDrawResult = data)
+        }
+    }
+
+    fun setHomeBodyData(list: List<LottoDrawResultModel>?) = intent {
+        val data = if (list != null) list else lottoUseCase.getLottoDrawResultList(lottoUseCase.getLatestLottoDrawRound().getOrThrow() - 1, MORE_LOAD_SIZE).getOrThrow().map { it.toModel() }
+        reduce {
+            state.copy(beforeLottoDrawResultList = data)
         }
     }
 

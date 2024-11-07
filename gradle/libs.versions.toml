@@ -1,5 +1,9 @@
 [versions]
 agp = "8.7.1"
+datastorePreferences = "1.1.1"
+glanceMaterial3 = "1.1.1"
+gson = "2.11.0"
+hiltWork = "1.2.0"
 kotlin = "2.0.20"
 kotlin-ksp = "2.0.20-1.0.25"
 coreKtx = "1.13.1"
@@ -14,6 +18,7 @@ lottieCompose = "6.5.2"
 material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.0"
 hiltAndroid = "2.52"
+hiltCompiler = "1.2.0"
 orbitVersion = "9.0.0"
 retrofitVersion = "2.11.0"
 okhttpVersion = "4.12.0"
@@ -21,10 +26,18 @@ roomVersion = "2.6.1"
 barcodeScanning = "17.3.0"
 accompanistPermissions = "0.36.0"
 timber = "5.0.1"
+workRuntimeKtx = "2.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastorePreferences" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glanceMaterial3" }
+androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glanceMaterial3" }
+androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltWork" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -43,6 +56,7 @@ lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+hilt-androidx-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
 orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbitVersion" }
 orbit-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbitVersion" }
 orbit-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbitVersion" }

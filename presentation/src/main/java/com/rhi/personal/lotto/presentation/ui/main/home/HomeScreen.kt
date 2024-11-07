@@ -41,7 +41,9 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val state = viewModel.collectAsState().value
-    viewModel.setInitData(preLoad.first, preLoad.second)
+    viewModel.setHomeHeaderData(preLoad.first)
+    viewModel.setHomeBodyData(preLoad.second)
+
     HomeScreen(
         latestLottoDrawResult = state.latestLottoDrawResult,
         beforeLottoDrawResultList = state.beforeLottoDrawResultList,

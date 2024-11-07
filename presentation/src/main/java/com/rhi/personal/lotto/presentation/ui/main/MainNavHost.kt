@@ -31,17 +31,18 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MainNavHost(
-    preLoadModel: SplashPreLoadModel
+    preLoadModel: SplashPreLoadModel?
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = { MainNavigationDrawer() }
     ) {
         MainNavHost(
-            preLoadModel.latestLottoDrawResult,
-            preLoadModel.beforeLottoDrawResultList,
+            preLoadModel?.latestLottoDrawResult,
+            preLoadModel?.beforeLottoDrawResultList,
             onClickOpenNavigationDrawer = {
                 scope.launch {
                     drawerState.open()
@@ -54,8 +55,8 @@ fun MainNavHost(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun MainNavHost(
-    latestLottoDrawResult: LottoDrawResultModel,
-    beforeLottoDrawResultList: List<LottoDrawResultModel>,
+    latestLottoDrawResult: LottoDrawResultModel?,
+    beforeLottoDrawResultList: List<LottoDrawResultModel>?,
     onClickOpenNavigationDrawer: () -> Unit
 ) {
     val navController = rememberNavController()
