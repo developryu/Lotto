@@ -1,3 +1,7 @@
+import java.util.Properties
+import java.io.FileInputStream
+import org.gradle.api.GradleException
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -7,12 +11,25 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
 }
 
+val localProperties = Properties()
+localProperties.load(FileInputStream(rootProject.file("local.properties")))
+
+fun getLocalProperty(key: String): String {
+    return localProperties.getProperty(key) ?: throw GradleException("Required property $key is missing from local.properties")
+}
+
+
 android {
     namespace = "com.rhi.personal.lotto.presentation"
     compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
         minSdk = rootProject.extra["minSdk"] as Int
+
+        manifestPlaceholders += mapOf(
+            "NAVER_CLIENT_ID" to getLocalProperty("naver_map_client_id"),
+            "NAVER_CLIENT_SECRET" to getLocalProperty("naver_map_client_secret")
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -32,6 +49,7 @@ android {
         targetCompatibility = rootProject.extra["targetCompatibility"] as JavaVersion
     }
     kotlinOptions {
+//        jvmTarget = rootProject.extra["jvmTarget"] as String
         jvmTarget = rootProject.extra["jvmTarget"] as String
     }
     buildFeatures {
@@ -109,4 +127,8 @@ dependencies {
     implementation(libs.androidx.paging.runtime.ktx)
     testImplementation(libs.androidx.paging.common.ktx)
     implementation(libs.androidx.paging.compose)
+
+    // NaverMap
+    implementation(libs.naver.map.compose)
+    implementation(libs.naver.map.location)
 }

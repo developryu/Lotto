@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -34,6 +35,7 @@ import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.ui.component.LottoDrawResultItem
 import com.rhi.personal.lotto.presentation.ui.history.LottoResultHistoryActivity
 import com.rhi.personal.lotto.presentation.ui.main.dialog.LottoDrawResultDialog
+import com.rhi.personal.lotto.presentation.ui.map.MapActivity
 import com.rhi.personal.lotto.presentation.ui.qrscan.QrScanActivity
 import org.orbitmvi.orbit.compose.collectAsState
 import java.util.Date
@@ -84,6 +86,18 @@ private fun HomeScreen(
                             context.startActivity(intent)
                         }
                     )
+                }
+            }
+
+            item {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        val intent = Intent(context, MapActivity::class.java)
+                        context.startActivity(intent)
+                    }
+                ) {
+                    Text("내 주변 로또 판매점 찾기")
                 }
             }
 

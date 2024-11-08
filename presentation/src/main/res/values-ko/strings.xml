@@ -28,12 +28,15 @@
     <string name="permission_camera">카메라</string>
     <string name="permission_write_external_storage">파일 쓰기</string>
     <string name="permission_read_external_storage">파일 읽기</string>
+    <string name="permission_access_fine_location">정확한 위치</string>
+    <string name="permission_access_coarse_location">대략적인 위치</string>
     <string name="permission_dialog_title">권한 요청 알림</string>
     <string name="permission_dialog_content">%1$s 기능을 사용하려면 %2$s 권한이 필요합니다. 권한을 허용해주세요.</string>
     <string name="permission_dialog_button_ok">확인</string>
     <string name="permission_dialog_button_cancel">취소</string>
     <string name="permission_dialog_button_setting">설정이동</string>
     <string name="permission_function_qr_scan">QR 코드 스캔</string>
+    <string name="permission_function_map">지도 사용</string>
 
     <string name="qr_scan_screen_title">QR 코드 당첨 확인하기</string>
     <string name="qr_scan_screen_description">QR 코드를 스캔하여 당첨 결과를 확인하세요.</string>

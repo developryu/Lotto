@@ -4,9 +4,12 @@ ext {
     val versionName by extra("1.0")
     val compileSdk by extra(35)
     val minSdk by extra(28)
-    val jvmTarget by extra("1.8")
-    val sourceCompatibility by extra(JavaVersion.VERSION_1_8)
-    val targetCompatibility by extra(JavaVersion.VERSION_1_8)
+//    val jvmTarget by extra("1.8")
+//    val sourceCompatibility by extra(JavaVersion.VERSION_1_8)
+//    val targetCompatibility by extra(JavaVersion.VERSION_1_8)
+    val jvmTarget by extra("11")
+    val sourceCompatibility by extra(JavaVersion.VERSION_11)
+    val targetCompatibility by extra(JavaVersion.VERSION_11)
 }
 
 plugins {

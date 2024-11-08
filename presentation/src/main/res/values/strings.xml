@@ -27,12 +27,15 @@
     <string name="permission_camera">Camera</string>
     <string name="permission_write_external_storage">Write External Storage</string>
     <string name="permission_read_external_storage">Read External Storage</string>
+    <string name="permission_access_fine_location">Precise Location</string>
+    <string name="permission_access_coarse_location">Approximate Location</string>
     <string name="permission_dialog_title">Permission Request Notification</string>
     <string name="permission_dialog_content">%2$s permission is required to use the %1$s function. Please allow the permission.</string>
     <string name="permission_dialog_button_ok">ok</string>
     <string name="permission_dialog_button_cancel">cancel</string>
     <string name="permission_dialog_button_setting">Go to settings</string>
     <string name="permission_function_qr_scan">QR Code Scanning</string>
+    <string name="permission_function_map">Use of maps</string>
 
     <string name="qr_scan_screen_title">Check your QR code winnings</string>
     <string name="qr_scan_screen_description">Scan the QR code to check your winning results.</string>

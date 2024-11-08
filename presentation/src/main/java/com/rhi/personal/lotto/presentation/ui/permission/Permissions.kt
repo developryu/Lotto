@@ -20,6 +20,15 @@ enum class Permissions(
     READ_EXTERNAL_STORAGE(
         permission = android.Manifest.permission.READ_EXTERNAL_STORAGE,
         permissionNameRes = R.string.permission_read_external_storage
-    )
+    ),
 
+    ACCESS_FINE_LOCATION(
+        permission = android.Manifest.permission.ACCESS_FINE_LOCATION,
+        permissionNameRes = R.string.permission_access_fine_location
+    ),
+
+    ACCESS_COARSE_LOCATION(
+        permission = android.Manifest.permission.ACCESS_COARSE_LOCATION,
+        permissionNameRes = R.string.permission_access_coarse_location
+    )
 }

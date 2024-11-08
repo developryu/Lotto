@@ -19,6 +19,8 @@ material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.0"
 hiltAndroid = "2.52"
 hiltCompiler = "1.2.0"
+naverMapCompose = "1.8.0"
+naverMapLocation = "21.0.2"
 orbitVersion = "9.0.0"
 pagingCompose = "3.3.2"
 retrofitVersion = "2.11.0"
@@ -61,6 +63,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 hilt-androidx-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
+naver-map-compose = { module = "io.github.fornewid:naver-map-compose", version.ref = "naverMapCompose" }
+naver-map-location = { module = "io.github.fornewid:naver-map-location", version.ref = "naverMapLocation" }
 orbit-compose = { module = "org.orbit-mvi:orbit-compose", version.ref = "orbitVersion" }
 orbit-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbitVersion" }
 orbit-viewmodel = { module = "org.orbit-mvi:orbit-viewmodel", version.ref = "orbitVersion" }

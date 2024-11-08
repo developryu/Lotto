@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.rhi.personal.lotto.data.source.room.AppDatabase
 import com.rhi.personal.lotto.data.source.room.dao.LottoDrawResultDao
+import com.rhi.personal.lotto.data.source.room.dao.SellLottoMarkerDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +33,11 @@ class RoomModule {
     @Singleton
     fun provideLottoDao(database: AppDatabase): LottoDrawResultDao {
         return database.lottoDrawResultDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideSellLottoMarker(database: AppDatabase): SellLottoMarkerDao {
+        return database.sellLottoMarkerDao()
     }
 }
