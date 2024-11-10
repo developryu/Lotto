@@ -4,6 +4,7 @@ import com.rhi.personal.lotto.presentation.R
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
@@ -61,7 +62,7 @@ private fun HomeWidget(
         )
         Spacer(modifier = GlanceModifier.size(10.dp))
         Text(
-            text = "홈",
+            text = stringResource(R.string.widget_home_title),
             style = TextStyle(
                 textAlign = TextAlign.Center,
                 color = ColorProvider(Color.Black, Color.White),

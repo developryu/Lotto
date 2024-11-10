@@ -3,6 +3,7 @@ package com.rhi.personal.lotto.presentation.widget.qrscan
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
@@ -68,7 +69,7 @@ fun QrScanWidget(
         )
         Spacer(modifier = GlanceModifier.size(10.dp))
         Text(
-            text = "QR 스캔",
+            text = stringResource(R.string.widget_qr_scan_title),
             style = TextStyle(
                 textAlign = TextAlign.Center,
                 color = ColorProvider(Color.Black, Color.White),

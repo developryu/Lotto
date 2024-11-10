@@ -1,9 +1,11 @@
 package com.rhi.personal.lotto.presentation.widget.shownumber
 
+import com.rhi.personal.lotto.presentation.R
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.Preferences
@@ -89,7 +91,10 @@ fun ShowNumberWidget(
     ) {
         if (data != null && update != null) {
             Text(
-                text = "제 ${data.drawRound}회차",
+                text = String.format(
+                    context.getString(R.string.widget_show_number_draw_round),
+                    data.drawRound
+                ),
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
@@ -97,7 +102,10 @@ fun ShowNumberWidget(
                 )
             )
             Text(
-                text = "추첨일 : ${data.getDrawDateShortFormat()}",
+                text = String.format(
+                    context.getString(R.string.widget_show_number_draw_date),
+                    data.getDrawDateShortFormat()
+                ),
                 style = TextStyle(
                     fontSize = 10.sp,
                     color = ColorProvider(Color.Gray, Color.Gray),
@@ -133,7 +141,7 @@ fun ShowNumberWidget(
             )
         } else {
             Text(
-                text = "Loading..."
+                text = stringResource(R.string.widget_show_number_loading)
             )
         }
     }

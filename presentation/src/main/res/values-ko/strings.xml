@@ -5,6 +5,12 @@
     <string name="splash_title">로또\n번호 확인</string>
     <string name="splash_fail_load_data">인터넷 상태 확인 후 다시 시도해주세요.</string>
 
+    <string name="widget_home_title">홈</string>
+    <string name="widget_qr_scan_title">로또 QR 스캔</string>
+    <string name="widget_show_number_draw_round">제 %d회차</string>
+    <string name="widget_show_number_draw_date">(%s 추첨)</string>
+    <string name="widget_show_number_loading">로딩 중...</string>
+
     <string name="winning_results">당첨결과</string>
     <string name="draw_round">%02d회</string>
     <string name="draw_date">(%s 추첨)</string>

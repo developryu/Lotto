@@ -4,6 +4,12 @@
     <string name="splash_title">Lotto\nNumber</string>
     <string name="splash_fail_load_data">Please check your internet connection and try again.</string>
 
+    <string name="widget_home_title">Home</string>
+    <string name="widget_qr_scan_title">Lotto QR Scan</string>
+    <string name="widget_show_number_draw_round">%dth Draw</string>
+    <string name="widget_show_number_draw_date">(Draw on %s)</string>
+    <string name="widget_show_number_loading">Loading...</string>
+
     <string name="winning_results">Winning Results</string>
     <string name="draw_round">%02dth</string>
     <string name="draw_date">(Draw on %s)</string>
