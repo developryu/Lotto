@@ -55,4 +55,16 @@
 
     <string name="lotto_draw_result_history_button">전체보기</string>
     <string name="lotto_draw_result_history_title">로또 당첨 번호 전체 보기</string>
+
+    <string name="map_button_title">내 주변 로또 판매점 찾기</string>
+    <string name="map_title">내 주변 로또 판매점</string>
+    <string name="map_loading">지도 데이터 로딩 중...</string>
+    <string name="map_fail_load">지도 앱을 열 수 없습니다.</string>
+    <string name="map_find_load">길찾기</string>
+    <string name="map_address1">도로명</string>
+    <string name="map_address2">지번</string>
+
+    <string name="share_lotto_draw">[%d회차 로또 당첨번호]\n당첨번호: %s + %d\n1등 당첨금: %s원\n1등 당첨자 수: %d명</string>
+    <string name="share_map_text">[로또 판매점]\n%s\n도로명: %s\n지번: %s</string>
+
 </resources>

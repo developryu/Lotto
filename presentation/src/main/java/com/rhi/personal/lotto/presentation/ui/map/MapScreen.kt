@@ -75,12 +75,7 @@ fun MapScreen(
     }
     var isShowPermissionDialog by remember { mutableStateOf(true) }
     var selectedMarker by remember { mutableStateOf<SellLottoMarkerModel?>(null) }
-
-
-
     var myLocation by remember { mutableStateOf(LatLng(37.5666102, 126.9783881)) }
-
-
 
     if (isShowPermissionDialog) {
         PermissionDialog(
@@ -109,7 +104,7 @@ fun MapScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "Loading...")
+                Text(text = stringResource(R.string.map_loading))
             }
         }
     }
@@ -209,7 +204,7 @@ private fun MarkerDialog(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "도로명",
+                        text = stringResource(R.string.map_address1),
                         fontSize = 10.sp,
                         modifier = Modifier
                             .border(
@@ -231,7 +226,7 @@ private fun MarkerDialog(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "지번",
+                        text = stringResource(R.string.map_address2),
                         fontSize = 10.sp,
                         modifier = Modifier
                             .border(
@@ -261,10 +256,12 @@ private fun MarkerDialog(
                     TextButton(
                         modifier = Modifier.weight(1f),
                         onClick = {
-                            val text = "[로또 판매점]\n" +
-                                    "${sellLottoMarker.name}\n" +
-                                    "도로명: ${sellLottoMarker.address1}\n" +
-                                    "지번: ${sellLottoMarker.address2}"
+                            val text = String.format(
+                                context.getString(R.string.share_map_text),
+                                sellLottoMarker.name,
+                                sellLottoMarker.address1,
+                                sellLottoMarker.address2
+                            )
                             val sendIntent: Intent = Intent().apply {
                                 action = Intent.ACTION_SEND
                                 putExtra(Intent.EXTRA_TEXT, text)
@@ -306,13 +303,13 @@ private fun MarkerDialog(
                                     context.startActivity(intent)
                                 }
                             } catch (e: Exception) {
-                                Toast.makeText(context, "지도 앱을 열 수 없습니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, context.getString(R.string.map_fail_load), Toast.LENGTH_SHORT).show()
                             }
                             onDismissRequest()
                         }
                     ) {
                         Text(
-                            text = "길찾기"
+                            text = stringResource(R.string.map_find_load)
                         )
                     }
                     TextButton(

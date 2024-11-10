@@ -54,4 +54,16 @@
 
     <string name="lotto_draw_result_history_button">show all</string>
     <string name="lotto_draw_result_history_title">lotto draw result history</string>
+
+    <string name="map_button_title">Find Lotto Sales Near Me</string>
+    <string name="map_title">Lotto Sales Near Me</string>
+    <string name="map_loading">Loading map...</string>
+    <string name="map_fail_load">Cannot open map app.</string>
+    <string name="map_find_load">Find a way</string>
+    <string name="map_address1">Road Name</string>
+    <string name="map_address2">Land Lot</string>
+
+    <string name="share_lotto_draw">[%dth Lotto Draw Results]\nWinning Numbers: %s + %d\n1st Prize: ₩%s\n1st Prize Count: %d</string>
+    <string name="share_map_text">[Lotto Sales]\n%s\nRoad Name: %s\nLand Lot: %s</string>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.map
 
+import com.rhi.personal.lotto.presentation.R
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,6 +13,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.res.stringResource
 import com.rhi.personal.lotto.presentation.theme.LottoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +29,7 @@ class MapActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                Text("내 주변 로또 판매점")
+                                Text(text = stringResource(R.string.map_title))
                             },
                             navigationIcon = {
                                 IconButton(
