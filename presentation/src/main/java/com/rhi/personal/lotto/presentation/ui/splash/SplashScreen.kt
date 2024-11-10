@@ -13,6 +13,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,7 +39,7 @@ fun SplashScreen(
         when (sideEffect) {
             is SplashSideEffect.LoadDataSuccess -> finish(sideEffect.preLoadModel)
             is SplashSideEffect.LoadDataFail -> {
-                Toast.makeText(context, "인터넷 상태 확인 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.splash_fail_load_data), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -62,7 +64,8 @@ private fun SplashScreen(isLoading: Boolean) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Splash\nScreen",
+            text = stringResource(R.string.splash_title),
+            textAlign = TextAlign.Center,
             fontSize = 80.sp,
             lineHeight =80.sp
         )

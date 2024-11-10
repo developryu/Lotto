@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Lotto Number</string>
 
+    <string name="splash_title">Lotto\nNumber</string>
+    <string name="splash_fail_load_data">Please check your internet connection and try again.</string>
+
     <string name="winning_results">Winning Results</string>
     <string name="draw_round">%02dth</string>
     <string name="draw_date">(Draw on %s)</string>

@@ -98,7 +98,9 @@ private fun HomeScreen(
                     }
                 ) {
                     Text(
-                        text = stringResource(R.string.map_button_title)
+                        modifier = Modifier.padding(vertical = 5.dp),
+                        text = stringResource(R.string.map_button_title),
+                        fontWeight = FontWeight.Bold
                     )
                 }
             }
