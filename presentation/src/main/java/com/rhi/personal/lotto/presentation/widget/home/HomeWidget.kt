@@ -1,11 +1,10 @@
-package com.rhi.personal.lotto.presentation.ui.widget.home
+package com.rhi.personal.lotto.presentation.widget.home
 
 import com.rhi.personal.lotto.presentation.R
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier

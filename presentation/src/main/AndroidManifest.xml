@@ -51,7 +51,7 @@ xmlns:tools="http://schemas.android.com/tools">
         <activity android:name=".ui.map.MapActivity"
             android:exported="false" />
 
-        <receiver android:name=".ui.widget.shownumber.ShowNumberWidgetReceiver"
+        <receiver android:name=".widget.shownumber.ShowNumberWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -61,7 +61,7 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:resource="@xml/show_number_widget" />
         </receiver>
 
-        <receiver android:name=".ui.widget.home.HomeWidgetReceiver"
+        <receiver android:name=".widget.home.HomeWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -71,7 +71,7 @@ xmlns:tools="http://schemas.android.com/tools">
                 android:resource="@xml/home_widget" />
         </receiver>
 
-        <receiver android:name=".ui.widget.qrscan.QrScanWidgetReceiver"
+        <receiver android:name=".widget.qrscan.QrScanWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

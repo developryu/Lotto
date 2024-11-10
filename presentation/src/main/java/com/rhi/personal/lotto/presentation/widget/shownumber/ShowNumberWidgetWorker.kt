@@ -1,4 +1,4 @@
-package com.rhi.personal.lotto.presentation.ui.widget.shownumber
+package com.rhi.personal.lotto.presentation.widget.shownumber
 
 import android.content.Context
 import androidx.glance.appwidget.GlanceAppWidgetManager
@@ -9,7 +9,7 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.rhi.personal.lotto.domain.usecase.LottoUseCase
 import com.rhi.personal.lotto.presentation.model.toModel
-import com.rhi.personal.lotto.presentation.ui.widget.WidgetPreferenceKey
+import com.rhi.personal.lotto.presentation.widget.WidgetPreferenceKey
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 

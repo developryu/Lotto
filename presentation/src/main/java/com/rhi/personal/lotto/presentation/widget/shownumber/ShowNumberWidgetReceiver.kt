@@ -1,4 +1,4 @@
-package com.rhi.personal.lotto.presentation.ui.widget.shownumber
+package com.rhi.personal.lotto.presentation.widget.shownumber
 
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver

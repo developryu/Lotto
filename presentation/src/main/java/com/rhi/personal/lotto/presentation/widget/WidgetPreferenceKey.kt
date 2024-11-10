@@ -1,4 +1,4 @@
-package com.rhi.personal.lotto.presentation.ui.widget
+package com.rhi.personal.lotto.presentation.widget
 
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey

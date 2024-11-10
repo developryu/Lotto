@@ -1,4 +1,4 @@
-package com.rhi.personal.lotto.presentation.ui.widget.qrscan
+package com.rhi.personal.lotto.presentation.widget.qrscan
 
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 
