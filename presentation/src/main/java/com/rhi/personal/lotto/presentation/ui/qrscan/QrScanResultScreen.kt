@@ -184,7 +184,17 @@ fun QrScanResultScreen(
             isShowDialog = false
         },
         onShredResult = {
-
+            val text = "[${it.drawRound}회차 로또 당첨번호]\n" +
+                    "당첨번호: ${it.numbers.joinToString(", ")} + ${it.bonusNumber}\n" +
+                    "1등 당첨금: ${it.getPrizeFormat(it.firstPrizeAmount)}원\n" +
+                    "1등 당첨자 수: ${it.firstWinnerCount}명"
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, text)
+                type = "text/plain"
+            }
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            context.startActivity(shareIntent)
         }
     )
 }

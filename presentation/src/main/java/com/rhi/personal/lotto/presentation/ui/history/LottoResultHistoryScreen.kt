@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.history
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import com.rhi.personal.lotto.presentation.R
 import androidx.compose.foundation.layout.padding
@@ -27,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -59,6 +61,7 @@ private fun LottoResultHistoryScreen(
     list: LazyPagingItems<LottoDrawResultModel>,
     finish: (() -> Unit)? = null
 ) {
+    val context = LocalContext.current
     var isShowDialog by remember { mutableStateOf(false) }
     var selectedLottoDrawResult by remember { mutableStateOf<LottoDrawResultModel?>(null) }
 
@@ -144,7 +147,17 @@ private fun LottoResultHistoryScreen(
                 isShowDialog = false
             },
             onShredResult = {
-
+                val text = "[${it.drawRound}회차 로또 당첨번호]\n" +
+                        "당첨번호: ${it.numbers.joinToString(", ")} + ${it.bonusNumber}\n" +
+                        "1등 당첨금: ${it.getPrizeFormat(it.firstPrizeAmount)}원\n" +
+                        "1등 당첨자 수: ${it.firstWinnerCount}명"
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, text)
+                    type = "text/plain"
+                }
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                context.startActivity(shareIntent)
             }
         )
     }

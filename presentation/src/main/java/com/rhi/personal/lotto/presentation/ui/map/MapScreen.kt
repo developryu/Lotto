@@ -260,7 +260,19 @@ private fun MarkerDialog(
                 ) {
                     TextButton(
                         modifier = Modifier.weight(1f),
-                        onClick = {  }
+                        onClick = {
+                            val text = "[로또 판매점]\n" +
+                                    "${sellLottoMarker.name}\n" +
+                                    "도로명: ${sellLottoMarker.address1}\n" +
+                                    "지번: ${sellLottoMarker.address2}"
+                            val sendIntent: Intent = Intent().apply {
+                                action = Intent.ACTION_SEND
+                                putExtra(Intent.EXTRA_TEXT, text)
+                                type = "text/plain"
+                            }
+                            val shareIntent = Intent.createChooser(sendIntent, null)
+                            context.startActivity(shareIntent)
+                        }
                     ) {
                         Text(
                             text = stringResource(R.string.share)
