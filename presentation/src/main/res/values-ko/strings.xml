@@ -76,4 +76,16 @@
     <string name="share_lotto_draw">[%d회차 로또 당첨번호]\n당첨번호: %s + %d\n1등 당첨금: %s원\n1등 당첨자 수: %d명</string>
     <string name="share_map_text">[로또 판매점]\n%s\n도로명: %s\n지번: %s</string>
 
+    <string name="setting_main_title1">앱 설정</string>
+    <string name="setting_sub_title_alarm">알림</string>
+    <string name="setting_item_alarm_draw">추첨 알림 받기</string>
+    <string name="setting_item_alarm_ad">광고 알림 받기</string>
+    <string name="setting_main_title2">앱 정보</string>
+    <string name="setting_sub_title_privacy">개인정보</string>
+    <string name="setting_item_privacy_policy">개인정보 처리방침</string>
+    <string name="setting_item_service">서비스 이용 약관</string>
+    <string name="setting_item_open_source">오픈소스 라이선스</string>
+    <string name="setting_sub_title_version">버전 정보</string>
+    <string name="setting_item_version">앱 버전</string>
+
 </resources>

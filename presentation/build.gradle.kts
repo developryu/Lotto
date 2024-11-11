@@ -30,11 +30,13 @@ android {
             "NAVER_CLIENT_ID" to getLocalProperty("naver_map_client_id"),
             "NAVER_CLIENT_SECRET" to getLocalProperty("naver_map_client_secret")
         )
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "VERSION_NAME", "\"${rootProject.extra["versionName"] as String}\"")
     }
-
+    buildFeatures {
+        buildConfig = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false

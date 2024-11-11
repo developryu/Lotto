@@ -75,4 +75,16 @@
     <string name="share_lotto_draw">[%dth Lotto Draw Results]\nWinning Numbers: %s + %d\n1st Prize: ₩%s\n1st Prize Count: %d</string>
     <string name="share_map_text">[Lotto Sales]\n%s\nRoad Name: %s\nLand Lot: %s</string>
 
+    <string name="setting_main_title1">Notification</string>
+    <string name="setting_sub_title_alarm">Alarm</string>
+    <string name="setting_item_alarm_draw">Receive Draw Alarm</string>
+    <string name="setting_item_alarm_ad">Receive Ad Alarm</string>
+    <string name="setting_main_title2">App Information</string>
+    <string name="setting_sub_title_privacy">Privacy</string>
+    <string name="setting_item_privacy_policy">Privacy Policy</string>
+    <string name="setting_item_service">Service Terms</string>
+    <string name="setting_item_open_source">Open Source License</string>
+    <string name="setting_sub_title_version">Version Information</string>
+    <string name="setting_item_version">Version</string>
+
 </resources>
