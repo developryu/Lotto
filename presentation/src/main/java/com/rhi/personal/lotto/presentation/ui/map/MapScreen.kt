@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.map
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
@@ -59,6 +60,7 @@ import com.rhi.personal.lotto.presentation.ui.permission.PermissionDialog
 import com.rhi.personal.lotto.presentation.ui.permission.Permissions
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.orbitmvi.orbit.compose.collectAsState
+import timber.log.Timber
 
 // https://github.com/fornewid/naver-map-compose
 // https://velog.io/@abh0920one/Compose-BottomSheet%EC%97%90-%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%A7%80%EB%8F%84-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
@@ -278,33 +280,7 @@ private fun MarkerDialog(
                     TextButton(
                         modifier = Modifier.weight(1f),
                         onClick = {
-                            try {
-                                val url = "nmap://route/${if (isWalkDistance(
-                                    myLocation,
-                                    LatLng(sellLottoMarker.latitude!!, sellLottoMarker.longitude!!)
-                                )) "walk" else "car"}?slat=${myLocation.latitude}&slng=${myLocation.longitude}&dlat=${sellLottoMarker.latitude}&dlng=${sellLottoMarker.longitude}&dname=${sellLottoMarker.name}"
-                                val intent =  Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                                intent.addCategory(Intent.CATEGORY_BROWSABLE)
-                                val installCheck = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                    context.packageManager.queryIntentActivities(
-                                        Intent(Intent.ACTION_MAIN, null).addCategory(Intent.CATEGORY_LAUNCHER),
-                                        PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY.toLong())
-                                    )
-                                } else {
-                                    context.packageManager.queryIntentActivities(
-                                        Intent(Intent.ACTION_MAIN, null).addCategory(Intent.CATEGORY_LAUNCHER),
-                                        PackageManager.GET_META_DATA
-                                    )
-                                }
-
-                                if (installCheck.isEmpty()) {
-                                    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.nhn.android.nmap")))
-                                } else {
-                                    context.startActivity(intent)
-                                }
-                            } catch (e: Exception) {
-                                Toast.makeText(context, context.getString(R.string.map_fail_load), Toast.LENGTH_SHORT).show()
-                            }
+                            openNaverMap(context, myLocation, sellLottoMarker)
                             onDismissRequest()
                         }
                     ) {
@@ -326,7 +302,40 @@ private fun MarkerDialog(
     }
 }
 
-fun isWalkDistance(myLocation: LatLng, selectedLocation: LatLng): Boolean {
+private fun openNaverMap(context: Context, myLocation: LatLng, sellLottoMarker: SellLottoMarkerModel) {
+    try {
+        val naverMapPackageName = "com.nhn.android.nmap"
+        val isInstallNaverMap = try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val pm = context.packageManager
+                pm.getPackageInfo(naverMapPackageName, PackageManager.PackageInfoFlags.of(0))
+                true
+            } else {
+                @Suppress("DEPRECATION")
+                val pm = context.packageManager
+                pm.getPackageInfo(naverMapPackageName, 0)
+                true
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            Timber.e(e)
+            false
+        }
+        if (isInstallNaverMap) {
+            val url = "nmap://route/${if (isWalkDistance(
+                    myLocation,
+                    LatLng(sellLottoMarker.latitude!!, sellLottoMarker.longitude!!)
+                )) "walk" else "car"}?slat=${myLocation.latitude}&slng=${myLocation.longitude}&dlat=${sellLottoMarker.latitude}&dlng=${sellLottoMarker.longitude}&dname=${sellLottoMarker.name}"
+            val intent =  Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            context.startActivity(intent)
+        } else {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$naverMapPackageName")))
+        }
+    } catch (e: Exception) {
+        Toast.makeText(context, context.getString(R.string.map_fail_load) + e.message, Toast.LENGTH_SHORT).show()
+    }
+}
+
+private fun isWalkDistance(myLocation: LatLng, selectedLocation: LatLng): Boolean {
     val targetKm = 2.0
     val myLocationObj = Location("").apply {
         latitude = myLocation.latitude
