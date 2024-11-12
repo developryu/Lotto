@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.ui.component.LottoDrawResultItem
+import com.rhi.personal.lotto.presentation.ui.generaor.NumberGeneratorActivity
 import com.rhi.personal.lotto.presentation.ui.history.LottoResultHistoryActivity
 import com.rhi.personal.lotto.presentation.ui.main.dialog.LottoDrawResultDialog
 import com.rhi.personal.lotto.presentation.ui.map.MapActivity
@@ -100,6 +101,22 @@ private fun HomeScreen(
                     Text(
                         modifier = Modifier.padding(vertical = 5.dp),
                         text = stringResource(R.string.map_button_title),
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+
+            item {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {
+                        val intent = Intent(context, NumberGeneratorActivity::class.java)
+                        context.startActivity(intent)
+                    }
+                ) {
+                    Text(
+                        modifier = Modifier.padding(vertical = 5.dp),
+                        text = stringResource(R.string.number_generator_title),
                         fontWeight = FontWeight.Bold
                     )
                 }

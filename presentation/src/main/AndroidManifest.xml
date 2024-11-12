@@ -55,6 +55,9 @@ xmlns:tools="http://schemas.android.com/tools">
         <activity android:name=".ui.map.MapActivity"
             android:exported="false" />
 
+        <activity android:name=".ui.generaor.NumberGeneratorActivity"
+            android:exported="false" />
+
         <receiver android:name=".widget.shownumber.ShowNumberWidgetReceiver"
             android:exported="true">
             <intent-filter>

@@ -88,4 +88,13 @@
     <string name="setting_sub_title_version">버전 정보</string>
     <string name="setting_item_version">앱 버전</string>
 
+    <string name="number_generator_title">로또 번호 생성</string>
+    <string name="number_generator_button">번호 생성</string>
+    <string name="number_generator_save">번호 저장</string>
+
+    <string name="navi_drawer_title_qr_scan">로또 QR 스캔</string>
+    <string name="navi_drawer_title_map">내 주변 로또 판매점</string>
+    <string name="navi_drawer_title_lotto_result_histroy">로또 당첨 번호 전체 보기</string>
+    <string name="navi_drawer_title_number_generator">로또 번호 생성</string>
+
 </resources>
