@@ -6,8 +6,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import com.rhi.personal.lotto.presentation.model.SplashPreLoadModel
 import com.rhi.personal.lotto.presentation.theme.LottoTheme
+import com.rhi.personal.lotto.presentation.ui.main.dialog.HomeFinishDialog
 import com.rhi.personal.lotto.presentation.ui.qrscan.QrScanActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +24,9 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+//        TODO("폴더블 대응")
+//        TODO("지도 목록 보기 - 바텀시트")
+
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
 
@@ -32,6 +39,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             LottoTheme {
                 MainNavHost(preLoadModel)
+                Box(modifier = Modifier.fillMaxSize()) {
+                    MainNavHost(preLoadModel)
+                    HomeFinishDialog(this@MainActivity)
+                }
             }
         }
 
