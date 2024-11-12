@@ -9,7 +9,9 @@ data class SellLottoMarkerModel(
     val address1: String,
     val address2: String,
     val longitude: Double?,
-    val latitude: Double?
+    val latitude: Double?,
+    var distance: Float? = null,
+    var distanceString: String? = null
 ) {
     fun toDomain(): SellLottoMarker = SellLottoMarker(
         date = date,

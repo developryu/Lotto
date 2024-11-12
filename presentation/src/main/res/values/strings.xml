@@ -71,6 +71,8 @@
     <string name="map_find_load">Find a way</string>
     <string name="map_address1">Road Name</string>
     <string name="map_address2">Land Lot</string>
+    <string name="map_distance">Straight Distance: %s</string>
+    <string name="map_sell_market_list">Sales List</string>
 
     <string name="share_lotto_draw">[%dth Lotto Draw Results]\nWinning Numbers: %s + %d\n1st Prize: ₩%s\n1st Prize Count: %d</string>
     <string name="share_map_text">[Lotto Sales]\n%s\nRoad Name: %s\nLand Lot: %s</string>
