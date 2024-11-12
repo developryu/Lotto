@@ -95,4 +95,9 @@
     <string name="navi_drawer_title_map">Lotto Sales Map</string>
     <string name="navi_drawer_title_lotto_result_histroy">Lotto Draw Result History</string>
     <string name="navi_drawer_title_number_generator">Generate Lotto Numbers</string>
+
+    <string name="home_finish_dialog_title">App Exit</string>
+    <string name="home_finish_dialog_content">Do you want to exit the app?</string>
+    <string name="home_finish_dialog_button_ok">exit</string>
+    <string name="home_finish_dialog_button_cancel">cancel</string>
 </resources>

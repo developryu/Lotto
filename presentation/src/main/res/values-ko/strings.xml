@@ -97,4 +97,10 @@
     <string name="navi_drawer_title_lotto_result_histroy">로또 당첨 번호 전체 보기</string>
     <string name="navi_drawer_title_number_generator">로또 번호 생성</string>
 
+    <string name="home_finish_dialog_title">앱 종료</string>
+    <string name="home_finish_dialog_content">앱을 종료하시겠습니까?</string>
+    <string name="home_finish_dialog_button_ok">종료</string>
+    <string name="home_finish_dialog_button_cancel">취소</string>
+
+
 </resources>

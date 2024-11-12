@@ -1,5 +1,6 @@
 package com.rhi.personal.lotto.presentation.ui.main.dialog
 
+import com.rhi.personal.lotto.presentation.R
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.compose.material3.AlertDialog
@@ -11,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun HomeFinishDialog(
@@ -35,16 +37,16 @@ fun HomeFinishDialog(
     if (showDialog) {
         AlertDialog(
             onDismissRequest = { showDialog = false },
-            title = { Text("앱 종료") },
-            text = { Text("정말 종료하시겠습니까?") },
+            title = { Text(text = stringResource(R.string.home_finish_dialog_title)) },
+            text = { Text(text = stringResource(R.string.home_finish_dialog_content)) },
             confirmButton = {
                 TextButton(onClick = { activity.finish() }) {
-                    Text("종료")
+                    Text(text = stringResource(R.string.home_finish_dialog_button_ok))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDialog = false }) {
-                    Text("취소")
+                    Text(text = stringResource(R.string.home_finish_dialog_button_cancel))
                 }
             }
         )
