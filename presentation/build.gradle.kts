@@ -65,6 +65,7 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(project(":modules:QrScan"))
+    implementation(project(":modules:DisplayDetector"))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -133,4 +134,7 @@ dependencies {
     // NaverMap
     implementation(libs.naver.map.compose)
     implementation(libs.naver.map.location)
+
+    // ConstraintLayout
+    implementation(libs.androidx.constraintlayout.compose)
 }

@@ -1,5 +1,12 @@
 package com.rhi.personal.lotto.presentation.ui.main
 
+import android.app.Activity
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import com.rhi.personal.lotto.presentation.R
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -15,10 +22,19 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -27,30 +43,83 @@ import com.rhi.personal.lotto.presentation.model.LottoDrawResultModel
 import com.rhi.personal.lotto.presentation.model.SplashPreLoadModel
 import com.rhi.personal.lotto.presentation.ui.main.home.HomeScreen
 import com.rhi.personal.lotto.presentation.ui.main.setting.SettingScreen
+import com.ryu.personal.android.displaydetectorutil.DisplayDetector.observeDisplayState
+import com.ryu.personal.android.displaydetectorutil.DisplayState
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @Composable
 fun MainNavHost(
     preLoadModel: SplashPreLoadModel?
 ) {
+    val activity = LocalContext.current as Activity
+    val displayState = activity.observeDisplayState().collectAsState(initial = null).value
+    var foldableState by remember { mutableStateOf<DisplayState.FoldableState?>(null) }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val weight by animateFloatAsState(
+        targetValue = if (foldableState != DisplayState.FoldableState.HALF_OPENED) 1f else 0.5f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioNoBouncy,
+            stiffness = Spring.StiffnessMedium
+        ),
+        label = "weight"
+    )
 
-    ModalNavigationDrawer(
-        drawerState = drawerState,
-        drawerContent = { MainNavigationDrawer() }
+    LaunchedEffect(displayState) {
+        if (displayState?.foldableState != foldableState) {
+            foldableState = displayState?.foldableState
+        }
+    }
+
+    ConstraintLayout(
+        modifier = Modifier.fillMaxSize()
     ) {
-        MainNavHost(
-            preLoadModel?.latestLottoDrawResult,
-            preLoadModel?.beforeLottoDrawResultList,
-            onClickOpenNavigationDrawer = {
-                scope.launch {
-                    drawerState.open()
+        val (sideScreen, mainScreen) = createRefs()
+        Timber.e("weight: $weight / $foldableState")
+        ModalNavigationDrawer(
+            modifier = Modifier
+                .constrainAs(mainScreen) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(sideScreen.end)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.fillToConstraints
+                    horizontalChainWeight = weight
+                },
+            drawerState = drawerState,
+            drawerContent = { MainNavigationDrawer() }
+        ) {
+            MainNavHost(
+                preLoadModel?.latestLottoDrawResult,
+                preLoadModel?.beforeLottoDrawResultList,
+                onClickOpenNavigationDrawer = {
+                    scope.launch {
+                        drawerState.open()
+                    }
                 }
-            }
-        )
+            )
+        }
+
+        Box(
+            modifier = Modifier
+                .constrainAs(sideScreen) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    start.linkTo(parent.start)
+                    end.linkTo(mainScreen.start)
+                    width = Dimension.fillToConstraints
+                    height = Dimension.fillToConstraints
+                    horizontalChainWeight = 1f - weight
+                }
+                .background(Color.Green)
+        ) {
+
+        }
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

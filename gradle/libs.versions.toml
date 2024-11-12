@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.1"
+constraintlayoutCompose = "1.1.0"
 datastorePreferences = "1.1.1"
 glanceMaterial3 = "1.1.1"
 gson = "2.11.0"
@@ -32,6 +33,7 @@ timber = "5.0.1"
 workRuntimeKtx = "2.10.0"
 
 [libraries]
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastorePreferences" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }

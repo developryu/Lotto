@@ -24,9 +24,6 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        TODO("폴더블 대응")
-//        TODO("지도 목록 보기 - 바텀시트")
-
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
 
