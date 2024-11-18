@@ -6,6 +6,7 @@
 
     <string name="widget_home_title">Home</string>
     <string name="widget_qr_scan_title">Lotto QR Scan</string>
+    <string name="widget_show_number_draw_title">Show Number</string>
     <string name="widget_show_number_draw_round">%dth Draw</string>
     <string name="widget_show_number_draw_date">(Draw on %s)</string>
     <string name="widget_show_number_loading">Loading...</string>

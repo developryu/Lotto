@@ -3,13 +3,13 @@ package com.rhi.personal.lotto.presentation.widget.qrscan
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
 import androidx.glance.action.Action
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionParametersOf
@@ -52,6 +52,7 @@ class QrScanWidget : GlanceAppWidget() {
 fun QrScanWidget(
     onClick: Action
 ) {
+    val context = LocalContext.current
     Column(
         modifier = GlanceModifier
             .fillMaxSize()
@@ -69,7 +70,7 @@ fun QrScanWidget(
         )
         Spacer(modifier = GlanceModifier.size(10.dp))
         Text(
-            text = stringResource(R.string.widget_qr_scan_title),
+            text = context.getString(R.string.widget_qr_scan_title),
             style = TextStyle(
                 textAlign = TextAlign.Center,
                 color = ColorProvider(Color.Black, Color.White),

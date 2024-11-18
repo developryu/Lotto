@@ -10,8 +10,7 @@
     android:maxResizeHeight="80dp"
     android:resizeMode="vertical"
     android:updatePeriodMillis="86400000"
-    android:description="@string/app_name"
-    android:previewImage="@drawable/widget_preview"
-    android:previewLayout="@drawable/widget_preview"
+    android:description="@string/widget_show_number_draw_title"
+    android:previewImage="@drawable/widget_ex_number"
     android:widgetCategory="home_screen">
 </appwidget-provider>

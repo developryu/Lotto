@@ -7,6 +7,7 @@
 
     <string name="widget_home_title">홈</string>
     <string name="widget_qr_scan_title">로또 QR 스캔</string>
+    <string name="widget_show_number_draw_title">로또 번호 보기</string>
     <string name="widget_show_number_draw_round">제 %d회차</string>
     <string name="widget_show_number_draw_date">(%s 추첨)</string>
     <string name="widget_show_number_loading">로딩 중...</string>

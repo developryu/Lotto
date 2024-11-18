@@ -5,7 +5,6 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.Preferences
@@ -141,7 +140,7 @@ fun ShowNumberWidget(
             )
         } else {
             Text(
-                text = stringResource(R.string.widget_show_number_loading)
+                text = context.getString(R.string.widget_show_number_loading)
             )
         }
     }

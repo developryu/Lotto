@@ -10,8 +10,7 @@
     android:maxResizeHeight="40dp"
     android:resizeMode="none"
     android:updatePeriodMillis="86400000"
-    android:description="@string/app_name"
-    android:previewImage="@drawable/ic_home"
-    android:previewLayout="@drawable/ic_home"
+    android:description="@string/widget_home_title"
+    android:previewImage="@drawable/widget_ex_home"
     android:widgetCategory="home_screen">
 </appwidget-provider>

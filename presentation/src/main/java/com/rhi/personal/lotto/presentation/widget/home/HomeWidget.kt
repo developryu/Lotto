@@ -4,7 +4,6 @@ import com.rhi.personal.lotto.presentation.R
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceId
@@ -12,6 +11,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
 import androidx.glance.action.Action
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
@@ -44,6 +44,7 @@ class HomeWidget : GlanceAppWidget() {
 private fun HomeWidget(
     onClick: Action
 ) {
+    val context = LocalContext.current
     Column(
         modifier = GlanceModifier
             .fillMaxSize()
@@ -62,7 +63,7 @@ private fun HomeWidget(
         )
         Spacer(modifier = GlanceModifier.size(10.dp))
         Text(
-            text = stringResource(R.string.widget_home_title),
+            text = context.getString(R.string.widget_home_title),
             style = TextStyle(
                 textAlign = TextAlign.Center,
                 color = ColorProvider(Color.Black, Color.White),
