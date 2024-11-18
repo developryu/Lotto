@@ -20,8 +20,11 @@
     - domain: useCase 및 repository 인터페이스
     - data: domain의 인터페이스 구현체 및 di
 - **QrScan**: QR 코드 스캔 기능 모듈 (Git Submodule)
+    - https://github.com/developryu/QrScan
 - **Camera**: 카메라 처리 모듈 (Git Submodule)
+    - https://github.com/developryu/Camera
 - **DisplayDetector**: 폴더블 상태 감지 모듈 (Git Submodule)
+    - https://github.com/developryu/DisplayDetector
 #### Git Submodules
 외부 모듈은 Git Submodule로 관리되며, 다음 명령어로 초기화할 수 있습니다:
 ```bash
