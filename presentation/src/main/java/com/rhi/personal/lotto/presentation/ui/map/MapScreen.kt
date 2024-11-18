@@ -406,7 +406,7 @@ fun MarkerListBottomSheet(
         )
         LazyColumn(
             modifier = Modifier.fillMaxWidth()
-                .fillMaxHeight(0.5f)
+                .fillMaxHeight(0.3f)
         ) {
             items(
                 count = markers.size
