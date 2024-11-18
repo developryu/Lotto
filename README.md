@@ -1,6 +1,6 @@
 # <center> **로또 번호 확인 앱 (Lotto Number Checker)**</center>
 ## 📱 프로젝트 소개
-이 앱은 로또 당첨 번호 정보를 제공하는 안드로이드 애플리케이션입니다. 최신 안드로이드 기술을 실습하고 학습하기 위한 프로젝트로, Clean Architecture를 기반으로 개발되었습니다.
+이 앱은 로또 당첨 번호 정보를 제공하는 안드로이드 애플리케이션입니다. 최신 안드로이드 기술을 실습하고 학습하기 위한 프로젝트로, Jetpack Compose와 Clean Architecture를 기반으로 개발되었습니다.
 
 ## ✨ 주요 기능
 - 로또 당첨번호 확인
@@ -34,6 +34,7 @@ git submodule update --init --recursive
 - 모듈화 아키텍처
 
 ### Libraries
+- **UI**: Jatpack Compose
 - **DI**: Hilt
 - **비동기 처리**: Coroutine, Flow
 - **로컬 데이터베이스**: Room
